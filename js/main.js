@@ -81,28 +81,12 @@ function initNavigation() {
 // =============================================
 // Portfolio
 // =============================================
-const STORAGE_KEY = 'portfolio_data_live';
 
 function getPortfolioData() {
-    // For public hosting: Prioritize static portfolioData from portfolio-data.js
-    // This is the published data committed to the Git repository
-    if (typeof portfolioData !== 'undefined' && Array.isArray(portfolioData) && portfolioData.length > 0) {
+    // Only use static portfolioData from portfolio-data.js
+    if (typeof portfolioData !== 'undefined' && Array.isArray(portfolioData)) {
         return portfolioData;
     }
-    
-    // Fallback to localStorage for local preview (admin testing)
-    const savedData = localStorage.getItem(STORAGE_KEY);
-    if (savedData) {
-        try {
-            const data = JSON.parse(savedData);
-            if (Array.isArray(data) && data.length > 0) {
-                return data;
-            }
-        } catch {
-            // Fall through to empty
-        }
-    }
-    
     return [];
 }
 

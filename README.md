@@ -11,14 +11,13 @@ A simple yet eye-catching dark-themed portfolio website for a 3D character artis
 3. **Set Source** to "Deploy from a branch" → select `main` branch
 4. **Your site will be live** at `https://yourusername.github.io/repository-name`
 
+
 ### Adding Your Portfolio
 
-1. Open `admin.html` in your browser (locally)
-2. Login with your credentials
-3. Create your portfolio items with images
-4. Click **"Download for Publishing"**
-5. Replace `js/portfolio-data.js` with the downloaded file
-6. Commit and push to GitHub
+1. Open `js/portfolio-data.js` in a text editor.
+2. Add your portfolio items as objects in the array (see the file for an example format).
+3. Place your images in the `images/` folder and reference them in each item.
+4. Save, commit, and push to GitHub.
 
 ## ✨ Features
 
@@ -27,60 +26,24 @@ A simple yet eye-catching dark-themed portfolio website for a 3D character artis
 - **Portfolio Gallery** - Beautiful card-based portfolio display
 - **Image Switcher** - View different render passes (Final Render, Base Color, Normal, Wireframe, No Color)
 - **Smooth Animations** - Subtle scroll animations and transitions
-- **Admin Panel** - Easy content management with image uploads
-- **No Backend Required** - Pure static hosting
+
+// ...existing code...
 
 ## 📁 Project Structure
 
 ```
 ├── index.html              # Main portfolio website
-├── admin.html              # Admin panel (for content management)
 ├── css/
-│   ├── styles.css          # Main site styles
-│   └── admin.css           # Admin panel styles
+│   └── styles.css          # Main site styles
 ├── js/
 │   ├── main.js             # Main site functionality
 │   ├── portfolio-data.js   # Portfolio content (auto-generated)
-│   ├── admin.js            # Admin panel functionality
-│   └── admin-auth.js       # Admin authentication
+// ...existing code...
 └── images/
     └── portfolio/          # Portfolio images folder
 ```
 
-## 🔐 Admin Access
-
-**Default Credentials:**
-- Username: `admin`
-- Password: `Hoda@Portfolio2024!`
-
-⚠️ **Change the password before going public!** See Security section below.
-
-## 📝 Managing Content
-
-### Adding New Portfolio Items
-
-1. Open `admin.html` locally in your browser
-2. Login with admin credentials
-3. Click **"New Portfolio Item"**
-4. Fill in the details:
-   - Title, Category, Description
-   - Software used, Date, Polygon count
-   - Tags (comma-separated)
-5. Upload images (drag & drop supported):
-   - **Final Render** (required)
-   - Base Color, Normal, Wireframe, No Color (optional)
-6. Click **"Save & Publish"**
-
-### Publishing Changes
-
-1. After creating/editing items, click **"Download for Publishing"**
-2. This downloads `portfolio-data.js` with your content
-3. Replace the existing `js/portfolio-data.js` file
-4. Commit and push to GitHub:
-   ```bash
-   git add js/portfolio-data.js
-   git commit -m "Update portfolio content"
-   git push
+// ...existing code...
    ```
 
 ## 🔒 Security
@@ -116,8 +79,9 @@ Edit CSS variables in `css/styles.css`:
 
 ### Content
 
-- Edit `index.html` directly for About, CV sections
-- Use admin panel for portfolio items
+
+Edit `index.html` directly for About, CV sections.
+Edit `js/portfolio-data.js` directly for portfolio items.
 
 ## 🌐 Browser Support
 
