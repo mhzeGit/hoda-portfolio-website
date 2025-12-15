@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoda | 3D Character Artist</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <span class="logo-text">HODA</span>
+                <span class="logo-dot"></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About Me</a></li>
+                <li><a href="#portfolio" class="nav-link">My Portfolio</a></li>
+                <li><a href="#cv" class="nav-link">My CV</a></li>
+            </ul>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="hero-greeting">Hello, I'm</p>
+                <h1 class="hero-name">Hoda</h1>
+                <h2 class="hero-title">3D Character Artist</h2>
+                <p class="hero-description">
+                    Bringing characters to life through digital sculpting and 3D artistry. 
+                    Creating memorable characters that tell stories.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image-container">
+                    <div class="hero-blob"></div>
+                    <div class="hero-placeholder">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <div class="about-image-placeholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <div class="about-text">
+                    <h3>Creating Characters That Inspire</h3>
+                    <p>
+                        I'm a passionate 3D character artist specializing in creating unique, 
+                        expressive characters for games, films, and digital media. With a keen 
+                        eye for detail and a love for storytelling, I bring imagination to life 
+                        through digital sculpting and modeling.
+                    </p>
+                    <p>
+                        My workflow includes high-poly sculpting, retopology, texturing, and 
+                        preparing characters for animation. I work with industry-standard tools 
+                        and stay updated with the latest techniques in 3D character creation.
+                    </p>
+                    <div class="skills">
+                        <h4>Skills & Tools</h4>
+                        <div class="skill-tags">
+                            <span class="skill-tag">ZBrush</span>
+                            <span class="skill-tag">Blender</span>
+                            <span class="skill-tag">Maya</span>
+                            <span class="skill-tag">Substance Painter</span>
+                            <span class="skill-tag">Marvelous Designer</span>
+                            <span class="skill-tag">Character Design</span>
+                            <span class="skill-tag">Sculpting</span>
+                            <span class="skill-tag">Texturing</span>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="ArtStation">
+                            <i class="fab fa-artstation"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">My Portfolio</h2>
+            <p class="section-subtitle">A collection of my 3D character work</p>
+            
+            <div class="portfolio-grid" id="portfolioGrid">
+                <!-- Portfolio items will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CV Section -->
+    <section id="cv" class="cv">
+        <div class="container">
+            <h2 class="section-title">My CV</h2>
+            <p class="section-subtitle">Experience & Education</p>
+            
+            <div class="cv-content">
+                <div class="cv-column">
+                    <h3 class="cv-heading"><i class="fas fa-briefcase"></i> Experience</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-date">2022 - Present</span>
+                                <h4>Senior 3D Character Artist</h4>
+                                <p class="timeline-company">Game Studio Name</p>
+                                <p>Creating high-quality game-ready characters for AAA titles. Leading character art direction and mentoring junior artists.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-date">2020 - 2022</span>
+                                <h4>3D Character Artist</h4>
+                                <p class="timeline-company">Animation Studio</p>
+                                <p>Designed and modeled characters for animated features and commercials. Collaborated with concept artists and animators.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-date">2018 - 2020</span>
+                                <h4>Junior 3D Artist</h4>
+                                <p class="timeline-company">Freelance</p>
+                                <p>Started professional journey creating characters for indie games and personal projects.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cv-column">
+                    <h3 class="cv-heading"><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-date">2014 - 2018</span>
+                                <h4>Bachelor in Digital Arts</h4>
+                                <p class="timeline-company">University Name</p>
+                                <p>Specialized in 3D modeling and character design. Graduated with honors.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-content">
+                                <span class="timeline-date">2019</span>
+                                <h4>Advanced Character Creation</h4>
+                                <p class="timeline-company">Online Course</p>
+                                <p>Intensive course on game-ready character creation pipeline.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="cv-heading" style="margin-top: 3rem;"><i class="fas fa-download"></i> Download</h3>
+                    <a href="#" class="btn btn-primary download-cv">
+                        <i class="fas fa-file-pdf"></i> Download Full CV
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Let's create something amazing together</p>
+            <div class="contact-content">
+                <a href="mailto:hello@example.com" class="contact-email">hello@example.com</a>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="ArtStation">
+                        <i class="fab fa-artstation"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Hoda. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Portfolio Modal -->
+    <div class="modal" id="portfolioModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body">
+                <div class="modal-image-section">
+                    <div class="modal-main-image">
+                        <img id="modalMainImage" src="" alt="">
+                    </div>
+                    <div class="image-switcher">
+                        <button class="switch-btn active" data-type="final">Final Render</button>
+                        <button class="switch-btn" data-type="basecolor">Base Color</button>
+                        <button class="switch-btn" data-type="normal">Normal</button>
+                        <button class="switch-btn" data-type="wireframe">Wireframe</button>
+                        <button class="switch-btn" data-type="nocolor">No Color</button>
+                    </div>
+                </div>
+                <div class="modal-info-section">
+                    <h2 id="modalTitle"></h2>
+                    <p class="modal-description" id="modalDescription"></p>
+                    <div class="modal-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Software</span>
+                            <span class="detail-value" id="modalSoftware"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Category</span>
+                            <span class="detail-value" id="modalCategory"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Date</span>
+                            <span class="detail-value" id="modalDate"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Polygons</span>
+                            <span class="detail-value" id="modalPolygons"></span>
+                        </div>
+                    </div>
+                    <div class="modal-tags" id="modalTags"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/portfolio-data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

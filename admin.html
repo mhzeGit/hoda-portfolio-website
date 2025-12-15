@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Admin Panel - Portfolio Management</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <i class="fas fa-lock"></i>
+                <h1>Admin Access</h1>
+                <p>Enter your credentials to continue</p>
+            </div>
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" required autocomplete="off">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="password-input">
+                        <input type="password" id="password" name="password" required autocomplete="off">
+                        <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="loginError" class="error-message"></div>
+                <button type="submit" class="btn btn-primary btn-full">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+            </form>
+            <div class="login-footer">
+                <p><i class="fas fa-shield-alt"></i> Secure Admin Area</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel (Hidden until login) -->
+    <div id="adminPanel" class="admin-panel hidden">
+        <!-- Admin Header -->
+        <header class="admin-header">
+            <div class="header-left">
+                <h1><i class="fas fa-palette"></i> Portfolio Admin</h1>
+            </div>
+            <div class="header-right">
+                <span class="auto-save-indicator">
+                    <i class="fas fa-check-circle"></i> Auto-saved
+                </span>
+                <a href="index.html" target="_blank" class="btn btn-secondary">
+                    <i class="fas fa-external-link-alt"></i> View Site
+                </a>
+                <button id="logoutBtn" class="btn btn-danger">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <!-- Sidebar Actions -->
+            <aside class="admin-sidebar">
+                <button id="newItemBtn" class="btn btn-primary btn-full">
+                    <i class="fas fa-plus"></i> New Portfolio Item
+                </button>
+                <hr>
+                <button id="publishBtn" class="btn btn-success btn-full">
+                    <i class="fas fa-cloud-upload-alt"></i> Download for Publishing
+                </button>
+                <p class="sidebar-hint">Download the data file and add it to your Git repository to publish changes.</p>
+                <hr>
+                <div class="sidebar-info success">
+                    <h4><i class="fas fa-magic"></i> How to Publish</h4>
+                    <ol>
+                        <li>Create/edit your portfolio items</li>
+                        <li>Click "Download for Publishing"</li>
+                        <li>Replace <code>js/portfolio-data.js</code> with downloaded file</li>
+                        <li>Commit and push to Git</li>
+                    </ol>
+                </div>
+            </aside>
+
+            <!-- Portfolio Items List -->
+            <section class="admin-content">
+                <div class="content-header">
+                    <h2>Portfolio Items</h2>
+                    <span id="itemCount" class="item-count">0 items</span>
+                </div>
+                <div id="portfolioList" class="portfolio-list">
+                    <!-- Items will be rendered here -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Edit Modal -->
+        <div id="editModal" class="modal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content modal-lg">
+                <div class="modal-header">
+                    <h2 id="modalTitle">New Portfolio Item</h2>
+                    <button class="modal-close" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <form id="itemForm" class="item-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="itemTitle">Title *</label>
+                            <input type="text" id="itemTitle" name="title" required placeholder="e.g., Fantasy Warrior">
+                        </div>
+                        <div class="form-group">
+                            <label for="itemCategory">Category *</label>
+                            <input type="text" id="itemCategory" name="category" required placeholder="e.g., Game Character">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="itemDescription">Description *</label>
+                        <textarea id="itemDescription" name="description" rows="4" required placeholder="Describe your work..."></textarea>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="itemSoftware">Software Used</label>
+                            <input type="text" id="itemSoftware" name="software" placeholder="e.g., ZBrush, Maya, Substance Painter">
+                        </div>
+                        <div class="form-group">
+                            <label for="itemDate">Date</label>
+                            <input type="text" id="itemDate" name="date" placeholder="e.g., 2024">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="itemPolygons">Polygon Count</label>
+                        <input type="text" id="itemPolygons" name="polygons" placeholder="e.g., 45,000 (Game-ready)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="itemTags">Tags (comma separated)</label>
+                        <input type="text" id="itemTags" name="tags" placeholder="e.g., Game Art, Fantasy, Character Design">
+                    </div>
+
+                    <div class="form-section">
+                        <h3><i class="fas fa-images"></i> Images</h3>
+                        <p class="form-hint">Upload your images directly. They will be embedded automatically (max 5MB each).</p>
+                        
+                        <div class="image-uploads-grid">
+                            <!-- Final Render -->
+                            <div class="image-upload-box">
+                                <label>Final Render * <span class="required">(Required)</span></label>
+                                <div class="image-upload-area" id="previewFinal">
+                                    <div class="upload-placeholder">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        <span>Drop image or click to upload</span>
+                                    </div>
+                                    <input type="file" id="imgUploadFinal" accept="image/*" class="file-input">
+                                </div>
+                                <input type="hidden" id="imgDataFinal">
+                                <button type="button" class="btn btn-sm btn-danger clear-btn hidden" id="clearFinal">
+                                    <i class="fas fa-times"></i> Remove
+                                </button>
+                            </div>
+                            
+                            <!-- Base Color -->
+                            <div class="image-upload-box">
+                                <label>Base Color</label>
+                                <div class="image-upload-area" id="previewBasecolor">
+                                    <div class="upload-placeholder">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        <span>Drop image or click</span>
+                                    </div>
+                                    <input type="file" id="imgUploadBasecolor" accept="image/*" class="file-input">
+                                </div>
+                                <input type="hidden" id="imgDataBasecolor">
+                                <button type="button" class="btn btn-sm btn-danger clear-btn hidden" id="clearBasecolor">
+                                    <i class="fas fa-times"></i> Remove
+                                </button>
+                            </div>
+                            
+                            <!-- Normal -->
+                            <div class="image-upload-box">
+                                <label>Normal Map</label>
+                                <div class="image-upload-area" id="previewNormal">
+                                    <div class="upload-placeholder">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        <span>Drop image or click</span>
+                                    </div>
+                                    <input type="file" id="imgUploadNormal" accept="image/*" class="file-input">
+                                </div>
+                                <input type="hidden" id="imgDataNormal">
+                                <button type="button" class="btn btn-sm btn-danger clear-btn hidden" id="clearNormal">
+                                    <i class="fas fa-times"></i> Remove
+                                </button>
+                            </div>
+                            
+                            <!-- Wireframe -->
+                            <div class="image-upload-box">
+                                <label>Wireframe</label>
+                                <div class="image-upload-area" id="previewWireframe">
+                                    <div class="upload-placeholder">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        <span>Drop image or click</span>
+                                    </div>
+                                    <input type="file" id="imgUploadWireframe" accept="image/*" class="file-input">
+                                </div>
+                                <input type="hidden" id="imgDataWireframe">
+                                <button type="button" class="btn btn-sm btn-danger clear-btn hidden" id="clearWireframe">
+                                    <i class="fas fa-times"></i> Remove
+                                </button>
+                            </div>
+                            
+                            <!-- No Color -->
+                            <div class="image-upload-box">
+                                <label>No Color (Clay)</label>
+                                <div class="image-upload-area" id="previewNocolor">
+                                    <div class="upload-placeholder">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                        <span>Drop image or click</span>
+                                    </div>
+                                    <input type="file" id="imgUploadNocolor" accept="image/*" class="file-input">
+                                </div>
+                                <input type="hidden" id="imgDataNocolor">
+                                <button type="button" class="btn btn-sm btn-danger clear-btn hidden" id="clearNocolor">
+                                    <i class="fas fa-times"></i> Remove
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Save & Publish
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Delete Confirmation Modal -->
+        <div id="deleteModal" class="modal">
+            <div class="modal-overlay"></div>
+            <div class="modal-content modal-sm">
+                <div class="modal-header">
+                    <h2>Confirm Delete</h2>
+                    <button class="modal-close" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="delete-content">
+                    <p>Are you sure you want to delete "<span id="deleteItemName"></span>"?</p>
+                    <p class="warning">This action cannot be undone.</p>
+                    <div class="form-actions">
+                        <button class="btn btn-secondary" id="cancelDeleteBtn">Cancel</button>
+                        <button class="btn btn-danger" id="confirmDeleteBtn">
+                            <i class="fas fa-trash"></i> Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin-auth.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
