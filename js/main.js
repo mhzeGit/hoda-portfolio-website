@@ -98,12 +98,7 @@ function initPortfolio() {
     const data = getPortfolioData();
     
     if (data.length === 0) {
-        portfolioGrid.innerHTML = `
-            <div class="portfolio-empty">
-                <i class="fas fa-images"></i>
-                <p>Portfolio items coming soon...</p>
-            </div>
-        `;
+        console.error('No portfolio data available. Check if portfolio-data.js is loaded correctly.');
         return;
     }
 
